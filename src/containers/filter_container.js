@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchTypes, selectType } from '../actions';
 import Filters from '../components/filters';
 import AppliedFilters from '../components/applied_filters';
+import PropTypes from 'prop-types';
 
 class FilterContainer extends Component {
   componentDidMount() {
@@ -40,6 +41,13 @@ class FilterContainer extends Component {
     );
   }
 }
+
+FilterContainer.propTypes = {
+  types: PropTypes.object.isRequired,
+  applied_types: PropTypes.object.isRequired,
+  fetchEvents: PropTypes.func,
+  selectType: PropTypes.func
+};
 
 function mapStateToProps(state) {
   return {

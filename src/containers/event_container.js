@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchEvents } from '../actions';
 import EventItem from '../components/event_item';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 
 class EventContainer extends Component {
   componentDidMount() {
@@ -55,6 +56,13 @@ class EventContainer extends Component {
     return <div className="row events">{this.renderEvents()}</div>;
   }
 }
+
+EventContainer.propTypes = {
+  types: PropTypes.object.isRequired,
+  applied_types: PropTypes.object.isRequired,
+  events: PropTypes.object.isRequired,
+  fetchEvents: PropTypes.func
+};
 
 function mapStateToProps(state) {
   return {
